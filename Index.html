@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maa Bhagawati Siksha Niketan Jr High School Barha, Agra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #0f2557 0%, #1a3a6e 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: #ff6b35;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Slider */
+        .hero-slider {
+            height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide1 {
+            background: linear-gradient(rgba(15, 37, 87, 0.7), rgba(15, 37, 87, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%230f2557" width="1200" height="600"/><rect fill="%23ff6b35" x="100" y="100" width="400" height="400" opacity="0.1"/><rect fill="%23ff6b35" x="700" y="150" width="300" height="300" opacity="0.1"/></svg>');
+            background-size: cover;
+        }
+
+        .slide2 {
+            background: linear-gradient(rgba(26, 58, 110, 0.7), rgba(26, 58, 110, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a3a6e" width="1200" height="600"/><circle fill="%23ff6b35" cx="300" cy="300" r="150" opacity="0.1"/><circle fill="%23ff6b35" cx="900" cy="250" r="100" opacity="0.1"/></svg>');
+            background-size: cover;
+        }
+
+        .slide3 {
+            background: linear-gradient(rgba(15, 37, 87, 0.7), rgba(15, 37, 87, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%230f2557" width="1200" height="600"/><polygon fill="%23ff6b35" points="600,100 750,400 450,400" opacity="0.1"/></svg>');
+            background-size: cover;
+        }
+
+        .slide-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .slide-content p {
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #0f2557;
+            margin-bottom: 3rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #ff6b35;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #0f2557;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .mission-vision {
+            background: linear-gradient(135deg, #0f2557 0%, #1a3a6e 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .mission-vision h3 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        /* Staff Section */
+        .staff {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+        }
+
+        .staff-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .staff-card:hover {
+            transform: scale(1.05);
+        }
+
+        .staff-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #0f2557 0%, #ff6b35 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .staff-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .staff-info h3 {
+            color: #0f2557;
+            margin-bottom: 0.5rem;
+        }
+
+        .staff-info p {
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        /* Events Section */
+        .events {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event-item {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #ff6b35;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+
+        .event-date {
+            color: #ff6b35;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-item h3 {
+            color: #0f2557;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0f2557 0%, #1a3a6e 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: #ff6b35;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #0f2557;
+                flex-direction: column;
+                padding: 1rem;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .slide-content h1 {
+                font-size: 2rem;
+            }
+
+            .slide-content p {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-slider {
+                height: 400px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">माँ भगवती शिक्षा निकेतन</div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="showSection('home')">होम</a></li>
+                <li><a href="#about" onclick="showSection('about')">हमारे बारे में</a></li>
+                <li><a href="#staff" onclick="showSection('staff')">स्टाफ</a></li>
+                <li><a href="#events" onclick="showSection('events')">कार्यक्रम</a></li>
+                <li><a href="#contact" onclick="showSection('contact')">संपर्क</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <!-- Hero Slider -->
+        <div class="hero-slider">
+            <div class="slide slide1 active">
+                <div class="slide-content">
+                    <h1>माँ भगवती शिक्षा निकेतन</h1>
+                    <p>जूनियर हाई स्कूल, बरहा, आगरा</p>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <div class="slide-content">
+                    <h1>गुणवत्तापूर्ण शिक्षा</h1>
+                    <p>आपके बच्चों के उज्ज्वल भविष्य के लिए</p>
+                </div>
+            </div>
+            <div class="slide slide3">
+                <div class="slide-content">
+                    <h1>सर्वांगीण विकास</h1>
+                    <p>शिक्षा, खेलकूद और संस्कार</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features">
+            <h2 class="section-title">हमारी विशेषताएं</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>गुणवत्तापूर्ण शिक्षा</h3>
+                    <p>अनुभवी शिक्षकों द्वारा आधुनिक शिक्षण पद्धति से शिक्षा</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏫</div>
+                    <h3>आधुनिक सुविधाएं</h3>
+                    <p>विशाल कक्षा, पुस्तकालय और खेल का मैदान</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3>अनुभवी शिक्षक</h3>
+                    <p>प्रशिक्षित और समर्पित शिक्षकों की टीम</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚽</div>
+                    <h3>खेलकूद</h3>
+                    <p>शारीरिक विकास के लिए विभिन्न खेल गतिविधियां</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>कंप्यूटर शिक्षा</h3>
+                    <p>डिजिटल युग के लिए तकनीकी ज्ञान</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>कला एवं संस्कृति</h3>
+                    <p>चित्रकला, संगीत और सांस्कृतिक गतिविधियां</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="hidden">
+        <div class="about">
+            <h2 class="section-title">हमारे बारे में</h2>
+            <div class="about-content">
+                <div class="mission-vision">
+                    <h3>हमारा उद्देश्य (Mission)</h3>
+                    <p>माँ भगवती शिक्षा निकेतन जूनियर हाई स्कूल, बरहा, आगरा का उद्देश्य प्रत्येक बच्चे को गुणवत्तापूर्ण शिक्षा प्रदान करना है। हम अपने छात्रों में ज्ञान, कौशल और मूल्यों का विकास करते हैं जो उन्हें जीवन में सफल बनाने में मदद करते हैं।</p>
+                    <br>
+                    <p>हम एक सुरक्षित और प्रेरणादायक वातावरण में शिक्षा प्रदान करते हैं जहां हर बच्चा अपनी क्षमताओं को पहचान सके और अपने सपनों को पूरा कर सके।</p>
+                </div>
+                <div class="mission-vision">
+                    <h3>हमारा विजन (Vision)</h3>
+                    <p>हमारा विजन एक ऐसे समाज का निर्माण करना है जहां शिक्षा हर बच्चे का अधिकार हो। हम चाहते हैं कि हमारे छात्र न केवल शैक्षणिक रूप से उत्कृष्ट हों, बल्कि संवेदनशील, जिम्मेदार और देश के योग्य नागरिक भी बनें।</p>
+                    <br>
+                    <p>हम परंपरा और आधुनिकता का संगम करते हुए छात्रों को भविष्य के लिए तैयार करते हैं। हमारा लक्ष्य है कि हर छात्र अपने जीवन में सफलता की नई ऊंचाइयों को छुए।</p>
+                </div>
+            </div>
+            <div style="margin-top: 3rem; text-align: center; line-height: 2;">
+                <h3 style="color: #0f2557; font-size: 2rem; margin-bottom: 1rem;">स्कूल की जानकारी</h3>
+                <p><strong>नाम:</strong> माँ भगवती शिक्षा निकेतन जूनियर हाई स्कूल</p>
+                <p><strong>स्थान:</strong> बरहा, आगरा, उत्तर प्रदेश</p>
+                <p><strong>स्थापना:</strong> समाज की शैक्षिक उन्नति के लिए</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Section -->
+    <section id="staff" class="hidden">
+        <div class="staff">
+            <h2 class="section-title">हमारा स्टाफ</h2>
+            <div class="staff-grid">
+                <div class="staff-card">
+                    <div class="staff-image">👨‍💼</div>
+                    <div class="staff-info">
+                        <h3>श्री [नाम]</h3>
+                        <p>अध्यक्ष (Chairman)</p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-image">👨‍🏫</div>
+                    <div class="staff-info">
+                        <h3>श्री/श्रीमती [नाम]</h3>
+                        <p>प्रधानाचार्य (Principal)</p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-image">👩‍🏫</div>
+                    <div class="staff-info">
+                        <h3>श्रीमती [नाम]</h3>
+                        <p>वरिष्ठ शिक्षक - हिंदी</p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-image">👨‍🏫</div>
+                    <div class="staff-info">
+                        <h3>श्री [नाम]</h3>
+                        <p>शिक्षक - गणित</p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-image">👩‍🏫</div>
+                    <div class="staff-info">
+                        <h3>श्रीमती [नाम]</h3>
+                        <p>शिक्षक - विज्ञान</p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-image">👨‍🏫</div>
+                    <div class="staff-info">
+                        <h3>श्री [नाम]</h3>
+                        <p>शिक्षक - सामाजिक विज्ञान</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="hidden">
+        <div class="events">
+            <h2 class="section-title">कार्यक्रम एवं सूचनाएं</h2>
+            
+            <div class="event-item">
+                <div class="event-date">📅 15 जनवरी 2025</div>
+                <h3>गणतंत्र दिवस समारोह</h3>
+                <p>विद्यालय में 26 जनवरी को गणतंत्र दिवस समारोह का आयोजन किया जाएगा। सभी छात्रों की उपस्थिति अनिवार्य है।</p>
+            </div>
+
+            <div class="event-item">
+                <div class="event-date">📢 10 जनवरी 2025</div>
+                <h3>अर्धवार्षिक परीक्षा की तिथि</h3>
+                <p>अर्धवार्षिक परीक्षा 1 फरवरी से प्रारंभ होगी। सभी छात्र समय पर अपनी तैयारी पूर्ण करें।</p>
+            </div>
+
+            <div class="event-item">
+                <div class="event-date">🏆 5 जनवरी 2025</div>
+                <h3>खेल प्रतियोगिता</h3>
+                <p>विद्यालय में वार्षिक खेल प्रतियोगिता का आयोजन किया गया। सभी विजेता छात्रों को बधाई।</p>
+            </div>
+
+            <div class="event-item">
+                <div class="event-date">📚 1 जनवरी 2025</div>
+                <h3>नव वर्ष संदेश</h3>
+                <p>नव वर्ष 2025 की हार्दिक शुभकामनाएं। आइए मिलकर इस वर्ष को सफल बनाएं।</p>
+            </div>
+
+            <div class="event-item">
+                <div class="event-date">🎄 25 दिसंबर 2024</div>
+                <h3>शीतकालीन अवकाश</h3>
+                <p>विद्यालय 26 दिसंबर से 5 जनवरी तक शीतकालीन अवकाश के लिए बंद रहेगा।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="hidden">
+        <div class="about">
+            <h2 class="section-title">संपर्क करें</h2>
+            <div style="text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 10px;">
+                <p style="font-size: 1.2rem; margin: 1rem 0;"><strong>📍 पता:</strong> माँ भगवती शिक्षा निकेतन जूनियर हाई स्कूल, बरहा, आगरा, उत्तर प्रदेश</p>
+                <p style="font-size: 1.2rem; margin: 1rem 0;"><strong>📞 फोन:</strong> [फोन नंबर]</p>
+                <p style="font-size: 1.2rem; margin: 1rem 0;"><strong>📧 ईमेल:</strong> [ईमेल पता]</p>
+                <p style="font-size: 1.2rem; margin: 1rem 0;"><strong>🕐 समय:</strong> सोमवार - शनिवार, 8:00 AM - 2:00 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>माँ भगवती शिक्षा निकेतन जूनियर हाई स्कूल</h3>
+            <p>बरहा, आगरा, उत्तर प्रदेश</p>
+            <div class="footer-links">
+                <a href="#home" onclick="showSection('home')">होम</a>
+                <a href="#about" onclick="showSection('about')">हमारे बारे में</a>
+                <a href="#staff" onclick="showSection('staff')">स्टाफ</a>
+                <a href="#events" onclick="showSection('events')">कार्यक्रम</a>
+                <a href="#contact" onclick="showSection('contact')">संपर्क</a>
+            </div>
+            <p style="margin-top: 1rem;">&copy; 2025 माँ भगवती शिक्षा निकेतन। सर्वाधिकार सुरक्षित।</p>
+        </div>
+    </footer>
+
+    <script>
+        // Slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 4000);
+
+        // Navigation functionality
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
+            
+            // Close mobile menu
+            document.getElementById('navLinks').classList.remove('active');
+        }
+
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const nav = document.querySelector('nav');
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+                document.getElementById('navLinks').classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
